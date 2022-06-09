@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            
+
         }
 
         public DbSet<CommentEntity> Comment {get;set;}
