@@ -4,6 +4,10 @@
     <ProjectReference Include="..\72_Hr_Assigment.Data\72_Hr_Assigment.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SQLserver" Version="6.0.5" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>_72_Hr_Assigment.Models</RootNamespace>
