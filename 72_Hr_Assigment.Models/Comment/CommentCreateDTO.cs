@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-    public class ReplyEntity
+    public class CommentCreateDTO
     {
-        
+        public string Text {get;set;}
     }

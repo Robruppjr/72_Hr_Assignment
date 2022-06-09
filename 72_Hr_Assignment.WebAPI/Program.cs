@@ -1,4 +1,4 @@
-using _72_Hr_Assigment.Data;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
