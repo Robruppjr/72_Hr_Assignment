@@ -19,8 +19,6 @@ namespace _72_Hr_Assigment.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("PostEntity", b =>
             modelBuilder.Entity("_72_Hr_Assigment.Data.Entities.ReplyEntity", b =>
 
                 {
@@ -34,7 +32,7 @@ namespace _72_Hr_Assigment.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Title");
 
                     b.Property<int>("CommentId")
                         .HasColumnType("int");
