@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-    public class CommentService
+    public class CommentService : ICommentService
     {
 
         private readonly ApplicationDbContext _context;
@@ -19,6 +19,5 @@ using System.Threading.Tasks;
            await _context.Comment.AddAsync(comment);
            var numberOfChanges = await _context.SaveChangesAsync();
            return numberOfChanges == 1;
-            
        }
     }
