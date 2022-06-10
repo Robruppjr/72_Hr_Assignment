@@ -1,15 +1,13 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace _72_Hr_Assigment.Models.Reply
 {
-    public class ReplyRegister
+    public class ReplyListItem
     {
-        [Required]
-        [MaxLength(8000, ErrorMessage = "{0} must contain no more than {1} characters.")]
+        public int Id { get; set; }
         public string Text { get; set; }
     }
 }

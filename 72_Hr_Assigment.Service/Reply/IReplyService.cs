@@ -8,6 +8,7 @@ namespace _72_Hr_Assigment.Service.Reply
 {
     public interface IReplyService
     {
-        Task<bool> CreateReplyAsync(ReplyRegister model);
+        Task<IEnumerable<ReplyListItem>> GetAllRepliesAsync();
+        Task<bool> CreateReplyAsync(ReplyCreate request);
     }
 }
