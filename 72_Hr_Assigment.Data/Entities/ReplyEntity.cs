@@ -10,8 +10,10 @@ using System.Threading.Tasks;
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey(nameof(CommentId))]
+        [ForeignKey(nameof(CommentEntity))]
         public int CommentId { get; set; }
+        [Required]
         public string Text { get; set; }
+        public List<ReplyEntity> Replies {get; set;}
         // public Guid AuthorId { get; set; }
     }
