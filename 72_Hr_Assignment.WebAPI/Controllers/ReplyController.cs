@@ -17,10 +17,10 @@ namespace _72_Hr_Assignment.WebAPI.Controllers
         {
             _service = services;
         }
-        [HttpPost]
-        public async Task<IActionResult> CreateReply([FromBody] ReplyCreate request)
-        {
-            if (!ModelState.IsValid)
-        }
+        // [HttpPost]
+        // public async Task<IActionResult> CreateReply([FromBody] ReplyCreate request)
+        // {
+        //     if (!ModelState.IsValid)
+        // }
     }
 }

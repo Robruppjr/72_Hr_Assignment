@@ -10,7 +10,7 @@ using System.Threading.Tasks;
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey(nameof(Comment))]
+        [ForeignKey(nameof(CommentEntity))]
         public int CommentId { get; set; }
         [Required]
         public string Text { get; set; }
