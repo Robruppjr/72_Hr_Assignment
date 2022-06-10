@@ -39,5 +39,10 @@ namespace _72_Hr_Assigment.Service.Reply
                 .ToListAsync();
         return replies;
         }
+
+        public Task<IEnumerable<ReplyListItem>> GetReplyByCommentId()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
