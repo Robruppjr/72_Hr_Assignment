@@ -19,12 +19,12 @@ namespace _72_Hr_Assignment.WebAPI.Controllers
             _replyService = replyService;
         }
         //Get api/Note
-        [HttpGet]
-        public async Task<IActionResult> GetAllReplies()
-        {
-            var replies = await _replyService.GetAllRepliesAsync();
-            return Ok(replies);
-        }
+        // [HttpGet]
+        // public async Task<IActionResult> GetAllReplies()
+        // {
+        //     var replies = await _replyService.GetAllRepliesAsync();
+        //     return Ok(replies);
+        // }
         [HttpPost]
         public async Task<IActionResult> CreateReply([FromBody] ReplyCreate request)
         {
