@@ -15,8 +15,9 @@ using Microsoft.EntityFrameworkCore;
         public DbSet<CommentEntity> Comment {get;set;}
 
 
+            public DbSet<ReplyEntity> Replies {get; set;}
+
+
         public DbSet<PostEntity> Posts { get; set; }
-
-        public DbSet<ReplyEntity> Replies {get; set;}
-
     }
+        
