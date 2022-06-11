@@ -16,7 +16,6 @@ using System.Threading.Tasks;
 
         [ForeignKey(nameof(Post))]
         public int PostId {get;set;}
-
         public PostEntity Post{get; set;}
 
     }
