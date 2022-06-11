@@ -19,6 +19,9 @@ using Microsoft.AspNetCore.Mvc;
             _context = context;
         }
 
+        //Get by post id
+        //get
+
       
        
     }
