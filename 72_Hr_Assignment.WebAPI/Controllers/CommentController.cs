@@ -40,6 +40,15 @@ using Microsoft.AspNetCore.Mvc;
 
         }
 
+        [HttpGet("{postId:int")]
+        public async Task<IActionResult> GetCommentsByPost([FromRoute] int postId)
+        {
+            var detail = await _commentService.GetCommentsByPostIdAsync(postId);
+
+            return detail is not null ? Ok(detail)
+            : NotFound();
+        }
+
         [HttpPut]
         public async Task<IActionResult> UpdateCommentById([FromRoute] CommentEditDTO request)
         {
