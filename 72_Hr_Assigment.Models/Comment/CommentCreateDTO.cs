@@ -6,5 +6,7 @@ using System.Threading.Tasks;
 
     public class CommentCreateDTO
     {
+
+        public int PostId {get;set;}
         public string Text {get;set;}
     }
