@@ -20,6 +20,7 @@ public class CommentService : ICommentService
         {
            CommentEntity comment = new CommentEntity
            {
+                PostId =    commentCreateDTO.PostId,
                Text = commentCreateDTO.Text
            };
 
