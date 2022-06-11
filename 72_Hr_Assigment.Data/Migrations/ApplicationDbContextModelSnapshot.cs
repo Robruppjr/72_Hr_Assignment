@@ -20,6 +20,10 @@ namespace _72_Hr_Assigment.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+
+            
+            modelBuilder.Entity("_72_Hr_Assigment.Data.Entities.ReplyEntity", b =>
+
             modelBuilder.Entity("CommentEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -39,6 +43,7 @@ namespace _72_Hr_Assigment.Data.Migrations
 
                     b.HasIndex("PostId");
 
+
                     b.ToTable("Comment");
                 });
 
@@ -53,6 +58,9 @@ namespace _72_Hr_Assigment.Data.Migrations
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+
+                    b.Property<string>("Title");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -70,6 +78,7 @@ namespace _72_Hr_Assigment.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
 
                     b.Property<int>("CommentId")
                         .HasColumnType("int");
