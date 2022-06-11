@@ -5,15 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace _72_Hr_Assigment.Data.Entities
-{
+
     public class ReplyEntity
     {
         [Key]
         public int Id { get; set; }
-        [ForeignKey(nameof(CommentId))]
+        [Required]
+        [ForeignKey(nameof(Comment))]
         public int CommentId { get; set; }
+        public CommentEntity Comment{get; set;}
         public string Text { get; set; }
+        // public List<ReplyEntity> Replies {get; set;}
         // public Guid AuthorId { get; set; }
     }
-}
