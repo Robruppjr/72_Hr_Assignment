@@ -11,9 +11,14 @@ public class CommentService : ICommentService
 
         private readonly ICommentService _commentService;
 
-       public async Task<bool> CreateCommentAsync (CommentCreateDTO commentCreateDTO)
-       {
-           CommentEntity comment = new CommentEntity ()
+        public CommentService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<bool> CreateCommentAsync (CommentCreateDTO commentCreateDTO)
+        {
+           CommentEntity comment = new CommentEntity
            {
                Text = commentCreateDTO.Text
            };
@@ -21,9 +26,9 @@ public class CommentService : ICommentService
            await _context.Comment.AddAsync(comment);
            var numberOfChanges = await _context.SaveChangesAsync();
            return numberOfChanges == 1;
-       }
+        }
 
-       //get all comments
+      
 
     
 
