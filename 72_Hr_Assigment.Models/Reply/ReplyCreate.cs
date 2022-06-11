@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
     public class ReplyCreate
     {
-        [Required]
         public int CommentId { get; set; }
         [Required]
         [MaxLength(8000, ErrorMessage = "{0} must contain no more than {1} characters.")]
