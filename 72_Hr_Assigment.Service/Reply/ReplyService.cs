@@ -2,11 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using _72_Hr_Assigment.Models.Reply;
 using Microsoft.EntityFrameworkCore;
 
-namespace _72_Hr_Assigment.Service.Reply
-{
+
     public class ReplyService : IReplyService
     {
         private readonly int _commentId;
@@ -17,11 +15,12 @@ namespace _72_Hr_Assigment.Service.Reply
         }
         public async Task<bool> CreateReplyAsync(ReplyCreate request)
         {
-            var entity = new ReplyEntity
+            var replyEntity = new ReplyEntity
             {
-                Text = request.Text,
+                CommentId = _commentId,
+                Text = request.Text
             };
-            _context.Replies.Add(entity);
+            _context.Replies.Add(replyEntity);
             var numberOfChanges = await _context.SaveChangesAsync();
             return numberOfChanges == 1;
 
@@ -49,11 +48,9 @@ namespace _72_Hr_Assigment.Service.Reply
                 );
                 //If replyEntity is null then return null, otherwise initialize and return a new noteDetail
                 return replyEntity is null ? null : new ReplyDetail
-                {
-                    CommentId = replyEntity.OwnerId,
+            {
                     Text = replyEntity.Text
                 };
             
         }
     }
-}
