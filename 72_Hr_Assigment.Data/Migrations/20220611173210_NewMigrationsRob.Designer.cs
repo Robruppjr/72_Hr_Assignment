@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace _72_Hr_Assigment.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220611170509_AddedListCommentsToPost")]
-    partial class AddedListCommentsToPost
+    [Migration("20220611173210_NewMigrationsRob")]
+    partial class NewMigrationsRob
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -90,7 +90,7 @@ namespace _72_Hr_Assigment.Data.Migrations
             modelBuilder.Entity("CommentEntity", b =>
                 {
                     b.HasOne("PostEntity", "Post")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -107,11 +107,6 @@ namespace _72_Hr_Assigment.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Comment");
-                });
-
-            modelBuilder.Entity("PostEntity", b =>
-                {
-                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }

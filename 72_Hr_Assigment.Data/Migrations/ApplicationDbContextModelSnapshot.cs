@@ -20,10 +20,6 @@ namespace _72_Hr_Assigment.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-
-            
-            modelBuilder.Entity("_72_Hr_Assigment.Data.Entities.ReplyEntity", b =>
-
             modelBuilder.Entity("CommentEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -43,7 +39,6 @@ namespace _72_Hr_Assigment.Data.Migrations
 
                     b.HasIndex("PostId");
 
-
                     b.ToTable("Comment");
                 });
 
@@ -58,9 +53,6 @@ namespace _72_Hr_Assigment.Data.Migrations
                     b.Property<string>("Text")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-
-                    b.Property<string>("Title");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -79,7 +71,6 @@ namespace _72_Hr_Assigment.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-
                     b.Property<int>("CommentId")
                         .HasColumnType("int");
 
@@ -97,7 +88,7 @@ namespace _72_Hr_Assigment.Data.Migrations
             modelBuilder.Entity("CommentEntity", b =>
                 {
                     b.HasOne("PostEntity", "Post")
-                        .WithMany("Comments")
+                        .WithMany()
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -114,11 +105,6 @@ namespace _72_Hr_Assigment.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Comment");
-                });
-
-            modelBuilder.Entity("PostEntity", b =>
-                {
-                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }
