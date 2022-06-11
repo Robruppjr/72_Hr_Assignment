@@ -9,6 +9,8 @@ public class CommentService : ICommentService
 
         private readonly ApplicationDbContext _context;
 
+        private readonly ICommentService _commentService;
+
        public async Task<bool> CreateCommentAsync (CommentCreateDTO commentCreateDTO)
        {
            CommentEntity comment = new CommentEntity ()
