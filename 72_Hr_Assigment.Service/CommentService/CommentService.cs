@@ -9,7 +9,7 @@ public class CommentService : ICommentService
 
         private readonly ApplicationDbContext _context;
 
-       public async Task<bool> CreateComment (CommentCreateDTO commentCreateDTO)
+       public async Task<bool> CreateCommentAsync (CommentCreateDTO commentCreateDTO)
        {
            CommentEntity comment = new CommentEntity ()
            {
@@ -22,6 +22,8 @@ public class CommentService : ICommentService
        }
 
        //get all comments
+
+    
 
        public async Task<CommentDetailDTO> GetCommentsByPostIdAsync (int postId)
        {
@@ -49,7 +51,7 @@ public class CommentService : ICommentService
            return numberOfChanges == 1;
        }
 
-       public async Task<bool> DeleteComment(int commentId)
+       public async Task<bool> DeleteCommentAsync(int commentId)
        {
            var commentEntity = await _context.Comment.FindAsync(commentId);
            if(commentEntity == null)
