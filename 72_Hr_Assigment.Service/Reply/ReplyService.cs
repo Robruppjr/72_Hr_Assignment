@@ -53,4 +53,16 @@ using Microsoft.EntityFrameworkCore;
                 };
             
         }
+
+    public async Task<bool> UpdateReplyAsync(ReplyUpdate request)
+    {
+        var replyEntity = await _context.Replies.FindAsync(request.Id);
+        if (replyEntity?.CommentId != _commentId)
+            return false;
+
+            replyEntity.Text = request.Text;
+
+        var numberOfChanges = await _context.SaveChangesAsync();
+        return numberOfChanges == 1;
     }
+}
