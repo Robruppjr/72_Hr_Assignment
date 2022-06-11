@@ -14,6 +14,6 @@ public class PostEntity
 
     [Required]
     public string Text { get; set; }
-    // public List<CommentEntity> Comments {get; set;}
+    public virtual List<CommentEntity> Comments {get; set;}
 
 }
