@@ -28,10 +28,6 @@ public class CommentService : ICommentService
            return numberOfChanges == 1;
         }
 
-      
-
-    
-
        public async Task<CommentDetailDTO> GetCommentsByPostIdAsync (int postId)
        {
             var commentEntity = await _context.Comment.FirstOrDefaultAsync(e => e.Id == e.PostId);

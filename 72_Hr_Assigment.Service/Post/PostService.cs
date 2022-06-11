@@ -2,10 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using _72_Hr_Assigment.Models.Post;
 
-namespace _72_Hr_Assigment.Service.Post
-{
+
+
     public class PostService : IPostService
     {
         private readonly int _postId;
@@ -27,4 +26,3 @@ namespace _72_Hr_Assigment.Service.Post
             return numberOfChanges == 1;
         }
     }
-}

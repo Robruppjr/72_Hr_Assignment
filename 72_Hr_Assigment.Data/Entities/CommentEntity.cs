@@ -18,4 +18,6 @@ using System.Threading.Tasks;
         public int PostId {get;set;}
         public PostEntity Post{get; set;}
 
+        public List<ReplyEntity> Replies {get;set;}
+
     }

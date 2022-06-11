@@ -4,8 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace _72_Hr_Assigment.Models.Post
-{
+
     public class PostCreate
     {
         [Key]
@@ -19,4 +18,3 @@ namespace _72_Hr_Assigment.Models.Post
         [MaxLength(300)]
         public string Text { get; set; }
     }
-}

@@ -10,13 +10,12 @@ using Microsoft.AspNetCore.Mvc;
     [Route("api/[controller]")]
     public class CommentController : ControllerBase
     {
-        private readonly ILogger<CommentController> _logger;
+      
 
         private readonly ICommentService _commentService;
 
-        public CommentController(ILogger<CommentController> logger, ICommentService commentService)
+        public CommentController(ICommentService commentService)
         {
-            _logger = logger;
             _commentService = commentService;
         }
 
