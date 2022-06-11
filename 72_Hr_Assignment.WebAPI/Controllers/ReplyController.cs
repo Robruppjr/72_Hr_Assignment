@@ -18,7 +18,7 @@ namespace _72_Hr_Assignment.WebAPI.Controllers
         {
             _replyService = replyService;
         }
-        //Get api/Note
+        
         // [HttpGet]
         // public async Task<IActionResult> GetAllReplies()
         // {
@@ -34,6 +34,16 @@ namespace _72_Hr_Assignment.WebAPI.Controllers
                 return Ok("Reply was created succesfully.");
             
             return BadRequest("Note could not be created.");
+        }
+        //Get api/Reply/(commentId)
+        [HttpGet("{commentId:int}")]
+        public async Task<IActionResult> GetReplyByComenntId([FromRoute] int ownerId)
+        {
+            var detail = await _replyService.GetReplyByCommentIdAsync(ownerId);
+
+            return detail is not null
+                ? Ok(detail)
+                : NotFound();
         }
     }
 }

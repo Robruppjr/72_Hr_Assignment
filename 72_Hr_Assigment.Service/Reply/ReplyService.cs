@@ -17,11 +17,12 @@ namespace _72_Hr_Assigment.Service.Reply
         }
         public async Task<bool> CreateReplyAsync(ReplyCreate request)
         {
-            var entity = new ReplyEntity
+            var replyEntity = new ReplyEntity
             {
-                Text = request.Text,
+                OwnerId = _commentId,
+                Text = request.Text
             };
-            _context.Replies.Add(entity);
+            _context.Replies.Add(replyEntity);
             var numberOfChanges = await _context.SaveChangesAsync();
             return numberOfChanges == 1;
 
@@ -40,12 +41,12 @@ namespace _72_Hr_Assigment.Service.Reply
         // return replies;
         // }
 
-        public async Task<ReplyDetail> GetReplyByCommentIdAsync(int commentId)
+        public async Task<ReplyDetail> GetReplyByCommentIdAsync(int ownerId)
         {
             //Find the first reply that has the given Id(commentID) that matches the requesting commentID
             var replyEntity = await _context.Replies
                 .FirstOrDefaultAsync(e => 
-                    e.Id == commentId
+                    e.Id == ownerId
                 );
                 //If replyEntity is null then return null, otherwise initialize and return a new noteDetail
                 return replyEntity is null ? null : new ReplyDetail
