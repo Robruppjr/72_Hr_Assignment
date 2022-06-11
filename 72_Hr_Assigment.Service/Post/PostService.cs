@@ -21,7 +21,7 @@ using System.Threading.Tasks;
                 Title = request.Title,
                 Text = request.Text
             };
-            _context.Posts.Add(postEntity);
+             _context.Posts.Add(postEntity);
             var numberOfChanges = await _context.SaveChangesAsync();
             return numberOfChanges == 1;
         }

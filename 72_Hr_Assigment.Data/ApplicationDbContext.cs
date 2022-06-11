@@ -19,5 +19,8 @@ using Microsoft.EntityFrameworkCore;
 
 
         public DbSet<PostEntity> Posts { get; set; }
+
+    
+
     }
         

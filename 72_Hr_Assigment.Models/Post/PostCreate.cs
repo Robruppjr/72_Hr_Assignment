@@ -7,14 +7,10 @@ using System.Threading.Tasks;
 
     public class PostCreate
     {
-        [Key]
-        public int Id { get; set; }
-
-        [Required]
-        [MaxLength(100)]
+        public int Id {get;set;}
+       
         public string Title { get; set; }
 
-        [Required]
-        [MaxLength(300)]
+      
         public string Text { get; set; }
     }

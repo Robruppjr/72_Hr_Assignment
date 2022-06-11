@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 public class CommentService : ICommentService
     {
 
+        private readonly int _postId;
         private readonly ApplicationDbContext _context;
 
         private readonly ICommentService _commentService;
@@ -20,10 +21,11 @@ public class CommentService : ICommentService
         {
            CommentEntity comment = new CommentEntity
            {
+               PostId = _postId,
                Text = commentCreateDTO.Text
            };
 
-           await _context.Comment.AddAsync(comment);
+            _context.Comment.Add(comment);
            var numberOfChanges = await _context.SaveChangesAsync();
            return numberOfChanges == 1;
         }

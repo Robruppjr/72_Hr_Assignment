@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace _72_Hr_Assigment.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220611173359_NewCommentMig")]
+    [Migration("20220611182312_NewCommentMig")]
     partial class NewCommentMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -90,7 +90,7 @@ namespace _72_Hr_Assigment.Data.Migrations
             modelBuilder.Entity("CommentEntity", b =>
                 {
                     b.HasOne("PostEntity", "Post")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("PostId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -101,12 +101,22 @@ namespace _72_Hr_Assigment.Data.Migrations
             modelBuilder.Entity("ReplyEntity", b =>
                 {
                     b.HasOne("CommentEntity", "Comment")
-                        .WithMany()
+                        .WithMany("Replies")
                         .HasForeignKey("CommentId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Comment");
+                });
+
+            modelBuilder.Entity("CommentEntity", b =>
+                {
+                    b.Navigation("Replies");
+                });
+
+            modelBuilder.Entity("PostEntity", b =>
+                {
+                    b.Navigation("Comments");
                 });
 #pragma warning restore 612, 618
         }
