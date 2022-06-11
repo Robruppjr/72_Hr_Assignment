@@ -33,8 +33,10 @@ using Microsoft.AspNetCore.Mvc;
             return BadRequest("Note could not be created.");
         }
         //Get api/Reply
+
         [HttpGet]
         [Route("{commentId}")]
+
         public async Task<IActionResult> GetReplyByComenntId([FromRoute] int commentId)
         {
             var detail = await _replyService.GetReplyByCommentIdAsync(commentId);
@@ -43,5 +45,6 @@ using Microsoft.AspNetCore.Mvc;
                 ? Ok(detail)
                 : NotFound();
         }
+
     }
 
