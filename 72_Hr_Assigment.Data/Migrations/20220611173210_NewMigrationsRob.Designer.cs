@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace _72_Hr_Assigment.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220611145034_UpdatedReply version 2")]
-    partial class UpdatedReplyversion2
+    [Migration("20220611173210_NewMigrationsRob")]
+    partial class NewMigrationsRob
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,8 @@ namespace _72_Hr_Assigment.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PostId");
 
                     b.ToTable("Comment");
                 });
@@ -83,6 +85,17 @@ namespace _72_Hr_Assigment.Data.Migrations
                     b.HasIndex("CommentId");
 
                     b.ToTable("Replies");
+                });
+
+            modelBuilder.Entity("CommentEntity", b =>
+                {
+                    b.HasOne("PostEntity", "Post")
+                        .WithMany()
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Post");
                 });
 
             modelBuilder.Entity("ReplyEntity", b =>
