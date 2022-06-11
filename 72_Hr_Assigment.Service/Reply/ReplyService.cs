@@ -2,11 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using _72_Hr_Assigment.Models.Reply;
 using Microsoft.EntityFrameworkCore;
 
-namespace _72_Hr_Assigment.Service.Reply
-{
+
     public class ReplyService : IReplyService
     {
         private readonly int _commentId;
@@ -19,7 +17,7 @@ namespace _72_Hr_Assigment.Service.Reply
         {
             var replyEntity = new ReplyEntity
             {
-                OwnerId = _commentId,
+                CommentId = _commentId,
                 Text = request.Text
             };
             _context.Replies.Add(replyEntity);
@@ -41,20 +39,18 @@ namespace _72_Hr_Assigment.Service.Reply
         // return replies;
         // }
 
-        public async Task<ReplyDetail> GetReplyByCommentIdAsync(int ownerId)
+        public async Task<ReplyDetail> GetReplyByCommentIdAsync(int commentId)
         {
             //Find the first reply that has the given Id(commentID) that matches the requesting commentID
             var replyEntity = await _context.Replies
                 .FirstOrDefaultAsync(e => 
-                    e.Id == ownerId
+                    e.Id == commentId
                 );
                 //If replyEntity is null then return null, otherwise initialize and return a new noteDetail
                 return replyEntity is null ? null : new ReplyDetail
-                {
-                    CommentId = replyEntity.OwnerId,
+            {
                     Text = replyEntity.Text
                 };
             
         }
     }
-}

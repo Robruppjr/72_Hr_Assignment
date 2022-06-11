@@ -2,13 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using _72_Hr_Assigment.Models.Reply;
-using _72_Hr_Assigment.Service.Reply;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace _72_Hr_Assignment.WebAPI.Controllers
-{
+
     [Route("api/[controller]")]
     [ApiController]
     public class ReplyController : ControllerBase
@@ -35,7 +32,7 @@ namespace _72_Hr_Assignment.WebAPI.Controllers
             
             return BadRequest("Note could not be created.");
         }
-        //Get api/Reply/(commentId)
+        //Get api/Reply
         [HttpGet("{commentId:int}")]
         public async Task<IActionResult> GetReplyByComenntId([FromRoute] int ownerId)
         {
@@ -46,4 +43,4 @@ namespace _72_Hr_Assignment.WebAPI.Controllers
                 : NotFound();
         }
     }
-}
+
