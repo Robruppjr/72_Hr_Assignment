@@ -10,4 +10,5 @@ using System.Threading.Tasks;
         // Task<IEnumerable<ReplyListItem>> GetAllRepliesAsync();
         Task<ReplyDetail> GetReplyByCommentIdAsync(int commentId);
         Task<bool> CreateReplyAsync(ReplyCreate request);
+        Task<bool> UpdateReplyAsync(ReplyUpdate request);
     }
