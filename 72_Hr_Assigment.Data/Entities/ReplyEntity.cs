@@ -11,9 +11,9 @@ using System.Threading.Tasks;
         [Key]
         public int Id { get; set; }
         [Required]
-        [ForeignKey(nameof(Owner))]
-        public int OwnerId { get; set; }
-        public CommentEntity Owner{get; set;}
+        [ForeignKey(nameof(Comment))]
+        public int CommentId { get; set; }
+        public CommentEntity Comment{get; set;}
         public string Text { get; set; }
         // public List<ReplyEntity> Replies {get; set;}
         // public Guid AuthorId { get; set; }

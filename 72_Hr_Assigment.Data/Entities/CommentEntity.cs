@@ -14,7 +14,9 @@ using System.Threading.Tasks;
         [Required]
         public string Text {get;set;}
 
-        [ForeignKey(nameof(PostId))]
+        [ForeignKey(nameof(Post))]
         public int PostId {get;set;}
+
+        public PostEntity Post{get; set;}
 
     }

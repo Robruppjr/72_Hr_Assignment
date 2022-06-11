@@ -15,11 +15,12 @@ using Microsoft.EntityFrameworkCore;
         }
         public async Task<bool> CreateReplyAsync(ReplyCreate request)
         {
-            var entity = new ReplyEntity
+            var replyEntity = new ReplyEntity
             {
-                Text = request.Text,
+                CommentId = _commentId,
+                Text = request.Text
             };
-            _context.Replies.Add(entity);
+            _context.Replies.Add(replyEntity);
             var numberOfChanges = await _context.SaveChangesAsync();
             return numberOfChanges == 1;
 
@@ -47,8 +48,7 @@ using Microsoft.EntityFrameworkCore;
                 );
                 //If replyEntity is null then return null, otherwise initialize and return a new noteDetail
                 return replyEntity is null ? null : new ReplyDetail
-                {
-                    CommentId = replyEntity.OwnerId,
+            {
                     Text = replyEntity.Text
                 };
             
