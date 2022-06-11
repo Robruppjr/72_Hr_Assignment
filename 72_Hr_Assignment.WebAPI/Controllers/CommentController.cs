@@ -40,7 +40,8 @@ using Microsoft.AspNetCore.Mvc;
 
         }
 
-        [HttpGet("{postId:int")]
+        [HttpGet]
+        [Route("{postId}")]
         public async Task<IActionResult> GetCommentsByPost([FromRoute] int postId)
         {
             var detail = await _commentService.GetCommentsByPostIdAsync(postId);
@@ -62,7 +63,8 @@ using Microsoft.AspNetCore.Mvc;
         }
         
 
-        [HttpDelete("{commentId:int")]
+        [HttpDelete]
+        [Route("{commentId}")]
         public async Task<IActionResult> DeleteComment([FromRoute] int commentId)
         {
             return await  _commentService.DeleteCommentAsync(commentId) 
