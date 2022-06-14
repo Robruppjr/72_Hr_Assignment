@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
     {
         private readonly IPostService _postService;
 
+
          public PostController(IPostService postService)
         {
             _postService = postService;
@@ -33,5 +34,6 @@ using Microsoft.AspNetCore.Mvc;
             return BadRequest("Post could not be created.");
 
         }
+    
     }
 

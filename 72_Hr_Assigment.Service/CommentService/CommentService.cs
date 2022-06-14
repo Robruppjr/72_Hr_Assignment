@@ -21,7 +21,8 @@ public class CommentService : ICommentService
         {
            CommentEntity comment = new CommentEntity
            {
-               PostId = _postId,
+            PostId =    commentCreateDTO.PostId,
+
                Text = commentCreateDTO.Text
            };
 
@@ -30,17 +31,20 @@ public class CommentService : ICommentService
            return numberOfChanges == 1;
         }
 
-       public async Task<CommentDetailDTO> GetCommentsByPostIdAsync (int postId)
+       public async Task<IEnumerable<CommentListItemDTO>> GetCommentsByPostIdAsync(int postId)
        {
-            var commentEntity = await _context.Comment.FirstOrDefaultAsync(e => e.Id == e.PostId);
-
-            return commentEntity is null ? null : new CommentDetailDTO
+         var comments = await _context.Comment
+            .Where(entity =>entity.PostId == postId)
+            .Select(entity => new CommentListItemDTO
             {
-                Id = commentEntity.Id,
-                Text = commentEntity.Text
-            };
+                Id = entity.Id,
+                Text = entity.Text
+            })
+            .ToListAsync();
 
+            return comments;
        }
+    
 
        public async Task<bool> UpdateCommentAsync(CommentEditDTO request)
        {

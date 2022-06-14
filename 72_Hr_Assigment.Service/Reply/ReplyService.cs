@@ -17,10 +17,10 @@ using Microsoft.EntityFrameworkCore;
         {
             var replyEntity = new ReplyEntity
             {
-                CommentId = _commentId,
+                CommentId = request.CommentId,
                 Text = request.Text
             };
-            _context.Replies.Add(replyEntity);
+            await _context.Replies.AddAsync(replyEntity);
             var numberOfChanges = await _context.SaveChangesAsync();
             return numberOfChanges == 1;
 

@@ -4,7 +4,7 @@
 
 namespace _72_Hr_Assigment.Data.Migrations
 {
-    public partial class NewCommentMig : Migration
+    public partial class _6_13_Mig : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -1,5 +1,4 @@
 
-
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,6 +16,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c=>
 {
     c.SwaggerDoc("v1" , new Microsoft.OpenApi.Models.OpenApiInfo { Title = "72_Hr_Assignment.WebAPI", Version = "v1"});
+
+
 });
 
 var app = builder.Build();
