@@ -44,12 +44,13 @@ using Microsoft.EntityFrameworkCore;
             //Find the first reply that has the given Id(commentID) that matches the requesting commentID
             var replyEntity = await _context.Replies
                 .FirstOrDefaultAsync(e => 
-                    e.Id == commentId
+                    e.CommentId == commentId
                 );
                 //If replyEntity is null then return null, otherwise initialize and return a new noteDetail
                 return replyEntity is null ? null : new ReplyDetail
             {
-                    Text = replyEntity.Text
+                CommentId = replyEntity.CommentId,
+                Text = replyEntity.Text
                 };
             
         }
