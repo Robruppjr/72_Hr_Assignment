@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
     public class ReplyService : IReplyService
     {
         private readonly int _commentId;
+        private readonly int _replyId;
         private readonly ApplicationDbContext _context;
         public ReplyService(ApplicationDbContext context)
         {
@@ -58,7 +59,7 @@ using Microsoft.EntityFrameworkCore;
     public async Task<bool> UpdateReplyAsync(ReplyUpdate request)
     {
         var replyEntity = await _context.Replies.FindAsync(request.Id);
-        if (replyEntity?.CommentId != _commentId)
+        if (replyEntity?.Id != request.Id)
             return false;
 
             replyEntity.Text = request.Text;
