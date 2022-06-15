@@ -43,6 +43,16 @@ using Microsoft.AspNetCore.Mvc;
                 ? Ok(detail)
                 : NotFound();
         }
-
+        [HttpPut]
+        public async Task<IActionResult> UpdateReplyById([FromBody] ReplyUpdate request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            
+            return await _replyService.UpdateReplyAsync(request)
+                ? Ok("Reply was succesfully updated.")
+                : BadRequest("Reply could not be updated.");
+        }
+        
     }
 

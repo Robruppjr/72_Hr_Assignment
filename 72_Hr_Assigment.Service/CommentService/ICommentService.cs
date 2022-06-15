@@ -12,7 +12,5 @@ using System.Threading.Tasks;
 
         Task<bool> UpdateCommentAsync(CommentEditDTO request);
 
-        Task<CommentDetailDTO> GetCommentsByPostIdAsync (int postId);
-
-
+        Task<IEnumerable<CommentListItemDTO>> GetCommentsByPostIdAsync(int postId);
     }
