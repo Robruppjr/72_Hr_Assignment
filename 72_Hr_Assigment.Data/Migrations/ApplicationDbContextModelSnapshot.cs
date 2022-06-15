@@ -45,7 +45,7 @@ namespace _72_Hr_Assigment.Data.Migrations
 
 
                     b.ToTable("Comment");
-                });
+                }));
 
             modelBuilder.Entity("PostEntity", b =>
                 {
