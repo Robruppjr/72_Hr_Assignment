@@ -16,7 +16,7 @@ using System.Threading.Tasks;
         public string Text {get;set;}
 
         [ForeignKey(nameof(Post))]
-        [DefaultValue(1)]
+       
         public int PostId {get;set;}
         public virtual PostEntity Post {get; set;}
         public virtual List<ReplyEntity> Replies {get; set;}
