@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace _72_Hr_Assigment.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220611210552_AddedVirtualToProps")]
-    partial class AddedVirtualToProps
+    [Migration("20220614015359_6_13_Mig")]
+    partial class _6_13_Mig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

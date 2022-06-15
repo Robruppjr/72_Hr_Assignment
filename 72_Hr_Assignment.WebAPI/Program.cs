@@ -1,9 +1,8 @@
 
-
-using _72_Hr_Assigment.Service.Post;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -16,7 +15,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c=>
 {
-    c.SwaggerDoc("v1" , new Microsoft.OpenApi.Models.OpenApiInfo { Title = "72_Hour_Assignment.WebAPI", Version = "v1"});
+    c.SwaggerDoc("v1" , new Microsoft.OpenApi.Models.OpenApiInfo { Title = "72_Hr_Assignment.WebAPI", Version = "v1"});
+
+
 });
 
 var app = builder.Build();

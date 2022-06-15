@@ -10,13 +10,12 @@ using Microsoft.AspNetCore.Mvc;
     [Route("api/[controller]")]
     public class CommentController : ControllerBase
     {
-        private readonly ILogger<CommentController> _logger;
+      
 
         private readonly ICommentService _commentService;
 
-        public CommentController(ILogger<CommentController> logger, ICommentService commentService)
+        public CommentController(ICommentService commentService)
         {
-            _logger = logger;
             _commentService = commentService;
         }
 
@@ -41,17 +40,19 @@ using Microsoft.AspNetCore.Mvc;
         }
 
         [HttpGet]
-        [Route("{postId}")]
-        public async Task<IActionResult> GetCommentsByPost([FromRoute] int postId)
+        public async Task<IActionResult> GetAllCommentsByPost([FromRoute] int postId)
         {
-            var detail = await _commentService.GetCommentsByPostIdAsync(postId);
-
-            return detail is not null ? Ok(detail)
+            var comments = await _commentService.GetCommentsByPostIdAsync(postId);
+           
+           return comments is not null
+            ? Ok(comments)
             : NotFound();
+
         }
+        
 
         [HttpPut]
-        public async Task<IActionResult> UpdateCommentById([FromRoute] CommentEditDTO request)
+        public async Task<IActionResult> UpdateCommentById([FromBody] CommentEditDTO request)
         {
             if(!ModelState.IsValid)
             {
